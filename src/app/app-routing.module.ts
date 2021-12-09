@@ -8,25 +8,25 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'home',
-    component: CardsComponent
+    component: CardsComponent,
   },
   {
-    path: 'details',
-    component: DetailsComponent
+    path: 'details/:id',
+    component: DetailsComponent,
   },
   {
     path: '**',
     redirectTo: 'home',
-    pathMatch: 'full'
-  }
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -1,6 +1,24 @@
 <article class="movies-container">
-  <section *ngFor="let movie of movies"
-   class="movies-item">
-    <app-card></app-card>
+  <section *ngFor="let movie of movies" class="movies-item">
+    <div class="card" style="width: 100%">
+      <img
+        src="https://via.placeholder.com/100"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ movie.nombre | uppercase }}</h5>
+        <p class="card-text">
+          {{ movie.bio }}
+        </p>
+        <button
+          [routerLink]="['/details', movie.id]"
+          (click)="navigate()"
+          class="btn btn-primary"
+        >
+          ver detalle
+        </button>
+      </div>
+    </div>
   </section>
 </article>

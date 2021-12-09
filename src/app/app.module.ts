@@ -8,6 +8,7 @@ import { CardComponent } from './components/card/card.component';
 import { DetailsComponent } from './components/details/details.component';
 import { SearchfieldComponent } from './components/searchfield/searchfield.component';
 import { CardsComponent } from './components/cards/cards.component';
+import { UpperCasePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -17,13 +18,9 @@ import { CardsComponent } from './components/cards/cards.component';
     DetailsComponent,
     SearchfieldComponent,
     CardsComponent,
-
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

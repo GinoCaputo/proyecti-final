@@ -1,5 +1,5 @@
 <article class="movies-container">
-  <section *ngFor="let movie of movies" class="movies-item">
+  <section *ngFor="let movie of movies; let i = index" class="movies-item">
     <div class="card" style="width: 100%">
       <img
         src="https://via.placeholder.com/100"
@@ -12,7 +12,7 @@
           {{ movie.bio }}
         </p>
         <button
-          [routerLink]="['/details', movie.id]"
+          [routerLink]="['/details', i]"
           (click)="navigate()"
           class="btn btn-primary"
         >

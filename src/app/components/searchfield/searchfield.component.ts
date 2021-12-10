@@ -8,6 +8,7 @@ import { HeroesService } from 'src/app/services/heroes.service';
 })
 export class SearchfieldComponent implements OnInit {
   search: string = '';
+  clear: boolean = false;
 
   constructor(private heroes: HeroesService) {}
 
@@ -17,5 +18,11 @@ export class SearchfieldComponent implements OnInit {
     $event.preventDefault();
     this.heroes.filterHeroes(this.search.trim());
     this.search = '';
+    this.clear = true;
+  }
+
+  onClear() {
+    this.heroes.resetHeroes();
+    this.clear = false;
   }
 }

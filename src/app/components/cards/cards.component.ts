@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HeroesService } from 'src/app/services/heroes.service';
+import { HeroesService, Movie } from 'src/app/services/heroes.service';
 
 @Component({
   selector: 'app-cards',
@@ -7,10 +7,13 @@ import { HeroesService } from 'src/app/services/heroes.service';
   styleUrls: ['./cards.component.scss'],
 })
 export class CardsComponent implements OnInit {
-  movies: any[] = [];
+  movies: Movie[] = [];
 
   constructor(private heroesSvc: HeroesService) {
-    this.movies = this.heroesSvc.movies;
+    // this.movies = this.heroesSvc.movies;
+    this.heroesSvc.getHeroes().subscribe((movies) => {
+      this.movies = movies;
+    });
   }
 
   ngOnInit(): void {}

@@ -10,7 +10,6 @@ import { DetailsComponent } from './components/details/details.component';
 import { SearchfieldComponent } from './components/searchfield/searchfield.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { UpperCasePipe } from '@angular/common';
-import { CardsfilteredComponent } from './components/cardsfiltered/cardsfiltered.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { CardsfilteredComponent } from './components/cardsfiltered/cardsfiltered
     DetailsComponent,
     SearchfieldComponent,
     CardsComponent,
-    CardsfilteredComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

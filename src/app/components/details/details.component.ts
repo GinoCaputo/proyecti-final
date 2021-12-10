@@ -14,7 +14,7 @@ export class DetailsComponent implements OnInit {
     private heroesSvc: HeroesService
   ) {
     this.actRoute.params.subscribe((params) => {
-      this.movie = this.heroesSvc.getHeroe(params['id']);
+      // this.movie = this.heroesSvc.getHeroe(params['id']);
       console.log(this.movie);
     });
   }

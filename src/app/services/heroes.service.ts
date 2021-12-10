@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HeroesService {
-  movies: any[] = [
+  initialMovies: Movie[] = [
     {
       id: 1,
       nombre: 'Aquaman',
@@ -62,17 +63,43 @@ export class HeroesService {
       casa: 'Marvel',
     },
   ];
-  filtered: any[] = [];
-  constructor() {}
 
-  getHeroe(id: number) {
-    return this.movies[id];
+  // filtered: any[] = [];
+  // constructor() {}
+  // getHeroe(id: number) {
+  //   return this.movies[id];
+  // }
+  // filterHeroes(text: string) {
+  //   this.filtered = this.movies.filter((movie) =>
+  //     movie.nombre.toLowerCase().includes(text.toLowerCase())
+  //   );
+  //   console.log(this.filtered);
+  // }
+
+  movies$: BehaviorSubject<Movie[]> = new BehaviorSubject(this.initialMovies);
+
+  getHeroes(): Observable<Movie[]> {
+    return this.movies$.asObservable();
   }
 
   filterHeroes(text: string) {
-    this.filtered = this.movies.filter((movie) =>
+    const filteredMovies = this.movies$.value.filter((movie) =>
       movie.nombre.toLowerCase().includes(text.toLowerCase())
     );
-    console.log(this.filtered);
+
+    this.movies$.next(filteredMovies);
   }
+
+  resetHeroes() {
+    this.movies$.next(this.initialMovies);
+  }
+}
+
+export interface Movie {
+  id: number;
+  nombre: string;
+  bio: string;
+  img: string;
+  aparicion: string;
+  casa: string;
 }

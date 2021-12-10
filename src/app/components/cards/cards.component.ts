@@ -18,4 +18,12 @@ export class CardsComponent implements OnInit {
   navigate() {
     console.log('click');
   }
+  recibir($event: DatosHijo) {
+    console.log('recibido', $event);
+  }
+}
+
+interface DatosHijo {
+  message: string;
+  component: string;
 }

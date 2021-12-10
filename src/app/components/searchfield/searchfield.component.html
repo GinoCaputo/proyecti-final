@@ -1,4 +1,14 @@
-<form class="d-flex">
-  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-  <button class="btn btn-outline-success" type="submit">Search</button>
+<form (submit)="filter($event)" class="d-flex">
+  <input
+    class="form-control me-2"
+    type="search"
+    placeholder="Search"
+    aria-label="Search"
+    id="search"
+    name="search"
+    [(ngModel)]="search"
+  />
+  <button routerLink="/filtered" class="btn btn-outline-success" type="submit">
+    Search
+  </button>
 </form>

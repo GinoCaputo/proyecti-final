@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,7 @@ import { DetailsComponent } from './components/details/details.component';
 import { SearchfieldComponent } from './components/searchfield/searchfield.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { UpperCasePipe } from '@angular/common';
+import { CardsfilteredComponent } from './components/cardsfiltered/cardsfiltered.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +20,9 @@ import { UpperCasePipe } from '@angular/common';
     DetailsComponent,
     SearchfieldComponent,
     CardsComponent,
+    CardsfilteredComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

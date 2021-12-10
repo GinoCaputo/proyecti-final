@@ -62,8 +62,17 @@ export class HeroesService {
       casa: 'Marvel',
     },
   ];
+  filtered: any[] = [];
   constructor() {}
+
   getHeroe(id: number) {
     return this.movies[id];
+  }
+
+  filterHeroes(text: string) {
+    this.filtered = this.movies.filter((movie) =>
+      movie.nombre.toLowerCase().includes(text.toLowerCase())
+    );
+    console.log(this.filtered);
   }
 }

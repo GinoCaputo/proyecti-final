@@ -20,7 +20,8 @@
     "module": "es2020",
     "lib": ["es2020", "dom"],
     "paths": {
-      "@app/guards/*": ["./src/app/shared/guards/*"]
+      "@app/guards/*": ["./src/app/shared/guards/*"],
+      "@app/models/*": ["./src/app/shared/models/*"]
     }
   },
   "angularCompilerOptions": {

@@ -10,11 +10,14 @@ import { HeroesService } from 'src/app/modules/shared/services/heroes.service';
 export class DetailsComponent implements OnInit {
   movie: any;
   movies: any = [];
-  constructor(private actRoute: ActivatedRoute) {
-    this.actRoute.params.subscribe((params) => {
-      // this.movie = this.heroesSvc.getHeroe(params['id']);
-      console.log(this.movie);
-    });
+  constructor(
+    private actRoute: ActivatedRoute,
+    private heroeSvc: HeroesService
+  ) {
+    // this.actRoute.params.subscribe((params) => {
+    //   this.movie = this.heroeSvc.getHeroe(params['id']);
+    //   console.log(this.movie);
+    // });
   }
 
   ngOnInit(): void {}

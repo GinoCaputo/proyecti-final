@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HeroesService, Movie } from 'src/app/services/heroes.service';
+import { Heroe, Response } from 'src/app/models/api-models';
+import { HeroesService } from 'src/app/services/heroes.service';
 
 @Component({
   selector: 'app-cards',
@@ -7,12 +8,13 @@ import { HeroesService, Movie } from 'src/app/services/heroes.service';
   styleUrls: ['./cards.component.scss'],
 })
 export class CardsComponent implements OnInit {
-  movies: Movie[] = [];
+  heroes: Heroe[] = [];
 
   constructor(private heroesSvc: HeroesService) {
-    // this.movies = this.heroesSvc.movies;
-    this.heroesSvc.getHeroes().subscribe((movies) => {
-      this.movies = movies;
+    // this.heroes = this.heroesSvc.heroes;
+    this.heroesSvc.getHeroes().subscribe((resp: Response) => {
+      console.log('Respuesta del endpoint heroes desde el componente: ', resp);
+      this.heroes = resp.data as Heroe[];
     });
   }
 

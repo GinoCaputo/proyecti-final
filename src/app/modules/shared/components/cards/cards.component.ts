@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HeroesService, Movie } from 'src/app/services/heroes.service';
+import { HeroesService, Movie } from 'src/app/modules/shared/services/heroes.service';
 
 @Component({
   selector: 'app-cards',

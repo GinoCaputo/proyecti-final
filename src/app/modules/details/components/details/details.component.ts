@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HeroesService } from 'src/app/services/heroes.service';
+import { HeroesService } from 'src/app/modules/shared/services/heroes.service';
 
 @Component({
   selector: 'app-details',
@@ -9,10 +9,8 @@ import { HeroesService } from 'src/app/services/heroes.service';
 })
 export class DetailsComponent implements OnInit {
   movie: any;
-  constructor(
-    private actRoute: ActivatedRoute,
-    private heroesSvc: HeroesService
-  ) {
+  movies: any = [];
+  constructor(private actRoute: ActivatedRoute) {
     this.actRoute.params.subscribe((params) => {
       // this.movie = this.heroesSvc.getHeroe(params['id']);
       console.log(this.movie);

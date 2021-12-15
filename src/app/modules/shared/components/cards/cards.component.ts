@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroesService } from 'src/app/modules/shared/services/heroes.service';
-import { Heroe, Response } from '@app/models/api-models';
+import { Heroe } from '@app/models/api-models';
 
 @Component({
   selector: 'app-cards',

@@ -4,9 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Heroe, Response } from '../models/api-models';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class HeroesService {
   initialMovies: Heroe[] = [
     {

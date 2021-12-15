@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroesService } from 'src/app/modules/shared/services/heroes.service';
-import { Heroe, Response } from 'src/app/models/api-models';
+import { Heroe, Response } from 'src/app/shared/models/api-models';
 
 @Component({
   selector: 'app-cards',
@@ -11,10 +11,8 @@ export class CardsComponent implements OnInit {
   heroes: Heroe[] = [];
 
   constructor(private heroesSvc: HeroesService) {
-    // this.heroes = this.heroesSvc.heroes;
-    this.heroesSvc.getHeroes().subscribe((resp: Response) => {
-      console.log('Respuesta del endpoint heroes desde el componente: ', resp);
-      this.heroes = resp.data as Heroe[];
+    this.heroesSvc.getHeroes().subscribe((heroes) => {
+      this.heroes = heroes;
     });
   }
 

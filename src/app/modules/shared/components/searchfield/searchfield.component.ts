@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HeroesService } from '../../services/heroes.service';
+import { HeroesService } from '@app/services/heroes.service';
 
 @Component({
   selector: 'app-searchfield',

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Heroe, Response } from '../shared/models/api-models';
+import { Heroe, Response } from '@app/models/api-models';
 
 @Injectable({
   providedIn: 'root',
@@ -83,11 +83,13 @@ export class HeroesService {
     },
   ];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.getCharacters();
+  }
 
   // filtered: any[] = [];
   // getHeroe(id: number) {
-  //   return this.movies[id];
+  //   return this.heroes$.value[id];
   // }
   // filterHeroes(text: string) {
   //   this.filtered = this.movies.filter((movie) =>
@@ -96,24 +98,31 @@ export class HeroesService {
   //   console.log(this.filtered);
   // }
 
-  movies$: BehaviorSubject<Heroe[]> = new BehaviorSubject(this.initialMovies);
+  heroes$: BehaviorSubject<Heroe[]> = new BehaviorSubject(this.initialMovies);
 
-  getHeroes(): Observable<Response> {
-    return this.http.get<Response>(`${environment.baseUrl}personajes`);
+  getHeroes(): Observable<Heroe[]> {
+    return this.heroes$.asObservable();
   }
-  getPeliculas(): Observable<Response> {
-    return this.http.get<Response>(`${environment.baseUrl}peliculas`);
+
+  getCharacters() {
+    this.http
+      .get<Response>(`${environment.baseUrl}personajes`)
+      .subscribe((response) => {
+        this.heroes$.next(response.data as Heroe[]);
+      });
   }
 
   filterHeroes(text: string) {
-    const filteredMovies = this.movies$.value.filter((movie) =>
+    const filteredMovies = this.heroes$.value.filter((movie) =>
       movie.nombre.toLowerCase().includes(text.toLowerCase())
     );
+    console.log(text, filteredMovies);
 
-    this.movies$.next(filteredMovies);
+    this.heroes$.next(filteredMovies);
   }
 
   resetHeroes() {
-    this.movies$.next(this.initialMovies);
+    this.getCharacters();
+    // this.heroes$.next(this.initialMovies);
   }
 }

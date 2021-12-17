@@ -9,8 +9,6 @@ import { CardsComponent } from './components/cards/cards.component';
 import { SearchfieldComponent } from './components/searchfield/searchfield.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
-import { HeroesService } from 'src/app/modules/shared/services/heroes.service';
-
 @NgModule({
   declarations: [
     CardComponent,
@@ -25,6 +23,5 @@ import { HeroesService } from 'src/app/modules/shared/services/heroes.service';
     SearchfieldComponent,
     NavbarComponent,
   ],
-  providers: [HeroesService],
 })
 export class SharedModule {}

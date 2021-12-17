@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HeroesService } from 'src/app/modules/shared/services/heroes.service';
+import { HeroesService } from 'src/app/shared/services/heroes.service';
 
 @Component({
   selector: 'app-details',

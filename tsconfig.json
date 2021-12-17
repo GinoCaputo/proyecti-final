@@ -21,7 +21,8 @@
     "lib": ["es2020", "dom"],
     "paths": {
       "@app/guards/*": ["./src/app/shared/guards/*"],
-      "@app/models/*": ["./src/app/shared/models/*"]
+      "@app/models/*": ["./src/app/shared/models/*"],
+      "@app/services/*": ["./src/app/shared/services/*"]
     }
   },
   "angularCompilerOptions": {

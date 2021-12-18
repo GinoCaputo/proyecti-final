@@ -1,4 +1,4 @@
-<article class="movies-container">
+<article #movies class="movies-container">
   <section *ngFor="let heroe of heroes; let i = index" class="movies-item">
     <app-card
       (enviardatos)="recibir($event)"
@@ -6,4 +6,5 @@
       [index]="i"
     ></app-card>
   </section>
+  <!-- {{ article.minW}} -->
 </article>

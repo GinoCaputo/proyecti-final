@@ -5,7 +5,7 @@
     <p class="card-text">
       {{ movie.bio }}
     </p>
-    <button [routerLink]="['/details', i]" class="btn btn-primary">
+    <button [routerLink]="['/details', 'hero', i]" class="btn btn-primary">
       ver detalle
     </button>
     <button (click)="avisarleAlPapa()" class="btn btn-primary">

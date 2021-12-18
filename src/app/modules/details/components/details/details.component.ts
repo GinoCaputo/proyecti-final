@@ -10,6 +10,7 @@ import { HeroesService } from 'src/app/shared/services/heroes.service';
 export class DetailsComponent implements OnInit {
   movie: any;
   movies: any = [];
+  jobsssss: string = 'jobs';
   constructor(
     private actRoute: ActivatedRoute,
     private heroeSvc: HeroesService
@@ -21,4 +22,8 @@ export class DetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  onReset() {
+    this.heroeSvc.resetHeroes();
+  }
 }
